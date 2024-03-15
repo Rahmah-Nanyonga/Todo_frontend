@@ -6,7 +6,7 @@ function TodoItem(props) {
   const [editTodo, setEditTodo] = useState();
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/todos");
+      const response = await fetch("https://todo-backend7.onrender.com/api/todos");
       const jsonData = await response.json();
       setTodos(jsonData);
     } catch (error) {
@@ -19,7 +19,7 @@ function TodoItem(props) {
   //deletes a todo item
   const handledelete = async (id) => {
    
-    const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
+    const response = await fetch(`https://todo-backend7.onrender.com/api/todos/${id}`, {
       method: "DELETE",
     });
     window.location = "/";
@@ -34,7 +34,7 @@ function TodoItem(props) {
           : todo
       );
 
-      const Update = await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const Update = await fetch(`https://todo-backend7.onrender.com/api/todos/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ description: updatedDescription }),

@@ -19,7 +19,7 @@ function InputTodo() {
       try {
         const data = { description: description };
 
-        const response = await fetch("http://localhost:5000/api/todos", {
+        const response = await fetch("https://todo-backend7.onrender.com/api/todos", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
