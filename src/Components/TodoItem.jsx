@@ -3,10 +3,13 @@ import Button from "./Button";
 
 function TodoItem(props) {
   const [todos, setTodos] = useState([]);
+
   const [editTodo, setEditTodo] = useState();
   const getTodos = async () => {
     try {
-      const response = await fetch("https://todo-backend7.onrender.com/api/todos");
+      const response = await fetch(
+        "https://todo-backend7.onrender.com/api/todos"
+      );
       const jsonData = await response.json();
       setTodos(jsonData);
     } catch (error) {
@@ -18,10 +21,12 @@ function TodoItem(props) {
   }, []);
   //deletes a todo item
   const handledelete = async (id) => {
-   
-    const response = await fetch(`https://todo-backend7.onrender.com/api/todos/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://todo-backend7.onrender.com/api/todos/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     window.location = "/";
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -34,11 +39,14 @@ function TodoItem(props) {
           : todo
       );
 
-      const Update = await fetch(`https://todo-backend7.onrender.com/api/todos/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description: updatedDescription }),
-      });
+      const Update = await fetch(
+        `https://todo-backend7.onrender.com/api/todos/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description: updatedDescription }),
+        }
+      );
 
       if (Update.ok) {
         setTodos(updatedTodos);
@@ -66,6 +74,7 @@ function TodoItem(props) {
 
   return (
     <>
+      
       {todos.map((todo) => (
         <div className="TodoItem" key={todo.todo_id}>
           <p>{todo.description}</p>

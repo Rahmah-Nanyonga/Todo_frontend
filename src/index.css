@@ -6,7 +6,8 @@
 body {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  padding: 20px 0;
+  min-height: max-content;
   align-items: center;
   background-color: #b86e00;
 
@@ -96,23 +97,22 @@ input[type="checkbox"] {
   position: fixed;
 }
 .card {
- min-width: 50vw;
+  min-width: 50vw;
   font-size: 1.4rem;
   line-height: 1.5;
   color: white;
   padding: 20px;
   border-radius: 10px;
 }
-.link{
-display: flex;
-justify-content: center;
+.link {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
-  color: rgba(0, 0, 0,.5);
+  color: rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
 }
-.link:hover{
+.link:hover {
   cursor: pointer;
   color: rgba(0, 0, 1);
   transform: scale(1.5);
-
 }
